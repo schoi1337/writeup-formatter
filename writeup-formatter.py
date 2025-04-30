@@ -1,5 +1,5 @@
 # Writeup Formatter
-# Converts Obsidian-based writeups into Jekyll-compatible blog posts with SEO, front matter, and optimized image paths
+# Converts Obsidian-based HTB writeups into Jekyll-compatible blog posts with SEO, front matter, and optimized image paths
 
 import os
 import datetime
