@@ -49,6 +49,10 @@ def process_and_replace_images(md_content, attachment_dir, base_title):
             new_path = os.path.join(ASSETS_DIR, new_name)
 
             try:
+                # Verify the image can be opened (helps catch invalid files)
+                with Image.open(old_path) as img:
+                    img.verify()
+                # Reopen the image for actual processing (resizing and saving)
                 with Image.open(old_path) as img:
                     if img.width > MAX_IMAGE_WIDTH:
                         ratio = MAX_IMAGE_WIDTH / float(img.width)
@@ -56,7 +60,7 @@ def process_and_replace_images(md_content, attachment_dir, base_title):
                         img = img.resize(new_size, Image.LANCZOS)
                     img.save(new_path, optimize=True, quality=IMAGE_QUALITY)
             except Exception as e:
-                print(f"❌ Failed to optimize image {file}: {e}")
+                print(f"❌ Skipping invalid image {file}: {e}")
                 continue
 
             # Replace image references in markdown content
