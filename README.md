@@ -52,11 +52,11 @@ python upload_htb_writeups.py
 ```
 
 ## 📦 What This Script Does
-✅ Creates `boxname.md` if missing, with a template
-✅ Adds front matter (title, date, categories, tags)
-✅ Randomizes post dates (within past 1.5 years, no duplicates)
-✅ Renames images (i.e.`forest1.png`, `forest2.png` ...)
-✅ Resizes images to max 1200px width, 80% quality
-✅ Moves images to `assets/images/`
-✅ Replaces all image paths in .md with `/assets/images/xxx.png`
-✅ Creates `_posts/` and `assets/images/` folders if missing
+- Creates `boxname.md` if missing, with a template
+-  Adds front matter (title, date, categories, tags)
+-  Randomizes post dates (within past 1.5 years, no duplicates)
+-  Renames images (i.e.`forest1.png`, `forest2.png` ...)
+-  Resizes images to max 1200px width, 80% quality
+-  Moves images to `assets/images/`
+-  Replaces all image paths in .md with `/assets/images/xxx.png`
+-  Creates `_posts/` and `assets/images/` folders if missing
