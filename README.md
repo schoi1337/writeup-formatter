@@ -2,7 +2,7 @@
 This Python automation script processes HackTheBox-style writeups written in Obsidian for Jekyll blogs. It prepares `.md` files with proper front matter, optimizes and renames images, rewrites image paths, and formats everything for SEO and publishing.
 
 ## ✅ Features
-- 🔄 Converts local Obsidian `.md` files into `_posts/YYYY-MM-DD-title.md`
+- 🔄 Converts local Obsidian `.md` files into `_posts/YYYY-MM-DD-title.md` (Date is chosen randomly from the past 1.5 years)
 - 🏷️ Automatically generates front matter with SEO-friendly tags
 - 🖼️ Resizes and compresses images; updates all image paths to `/assets/images/...`
 - 📁 Ensures proper Jekyll folder structure: `_posts/`, `assets/images/`
