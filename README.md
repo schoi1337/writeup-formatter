@@ -1,7 +1,12 @@
 # Writeup Formatter
 This Python automation script processes HackTheBox-style writeups written in Obsidian for Jekyll blogs. It prepares `.md` files with proper front matter, optimizes and renames images, rewrites image paths, and formats everything for SEO and publishing.
 
----
+## ✅ Features
+- 🔄 Converts local Obsidian `.md` files into `_posts/YYYY-MM-DD-title.md`
+- 🏷️ Automatically generates front matter with SEO-friendly tags
+- 🖼️ Resizes and compresses images; updates all image paths to `/assets/images/...`
+- 📁 Ensures proper Jekyll folder structure: `_posts/`, `assets/images/`
+- 🧠 Clean structure ready for Jekyll blog deployment
 
 ## 📁 Folder Structure
 ### Before Running (`htb_writeups/`)
@@ -29,6 +34,16 @@ assets/
     ├── forest1.png             # Renamed + optimized
     ├── forest2.png
     └── monteverde1.jpg
+```
+
+## Front Matter Example
+```yaml
+---
+title: "Forest"
+date: 2024-08-21
+categories: HTB
+tags: ["htb", "hackthebox", "writeup", "forest", "cybersecurity", "ctf"]
+---
 ```
 
 ## ✅ What You Need to Do
