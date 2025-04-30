@@ -63,5 +63,5 @@ pip install pillow
 
 2. Run the script
 ```python
-python upload_htb_writeups.py
+python writeup-formatter.py
 ```
