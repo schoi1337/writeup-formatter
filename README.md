@@ -3,7 +3,7 @@ This Python automation script processes HackTheBox-style writeups written in Obs
 
 ---
 
-## 📁 Folder Structure & User Responsibilities
+## 📁 Folder Structure
 ### Before Running (`htb_writeups/`)
 ```yaml
 htb_writeups/
