@@ -51,7 +51,7 @@ pip install pillow
 python upload_htb_writeups.py
 ```
 
-##📦 What This Script Does
+## 📦 What This Script Does
 ✅ Creates `boxname.md` if missing, with a template
 ✅ Adds front matter (title, date, categories, tags)
 ✅ Randomizes post dates (within past 1.5 years, no duplicates)
