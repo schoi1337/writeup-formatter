@@ -39,12 +39,18 @@ def process_and_replace_images(md_content, attachment_dir, base_title):
         return md_content
 
     img_counter = 1
+
+    # Match all ![[filename.png]] patterns in the markdown
+    image_links = re.findall(r'!\[\[(.*?)\]\]', md_content)
+
     for file in sorted(os.listdir(attachment_dir)):
         ext = os.path.splitext(file)[1].lower()
         if ext in IMAGE_EXTENSIONS:
             old_path = os.path.join(attachment_dir, file)
+
             new_name = f"{base_title}{img_counter}{ext}"
             new_path = os.path.join(ASSETS_DIR, new_name)
+
             try:
                 with Image.open(old_path) as img:
                     img.verify()
@@ -57,9 +63,16 @@ def process_and_replace_images(md_content, attachment_dir, base_title):
             except Exception as e:
                 print(f"❌ Skipping invalid image {file}: {e}")
                 continue
-            pattern = re.compile(re.escape(file))
-            md_content = pattern.sub(f"/assets/images/{new_name}", md_content)
+
+            # Look for Obsidian-style ![[...]] that matches this file
+            for match in image_links:
+                if os.path.basename(match).strip() == file:
+                    obsidian_pattern = re.compile(re.escape(f"![[" + match + "]]"))
+                    md_content = obsidian_pattern.sub(f"![screenshot](/assets/images/{new_name})", md_content)
+                    break  # Only replace the first match
+
             img_counter += 1
+
     return md_content
 
 date_pool = generate_date_pool()
