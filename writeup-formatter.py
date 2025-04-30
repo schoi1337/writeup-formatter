@@ -79,10 +79,45 @@ for folder in sorted(os.listdir(SOURCE_DIR)):
     if os.path.isdir(folder_path):
         md_path = os.path.join(folder_path, f"{folder}.md")
 
-        # If .md file doesn't exist, create an empty template
+        # If .md file doesn't exist, create an empty template with section headings
         if not os.path.exists(md_path):
             with open(md_path, 'w', encoding='utf-8') as f:
-                f.write(f"# {folder.title()}\n\nWriteup coming soon.\n")
+                user_input = input(f"Include 'What I Learned' section for {folder}? (y/n): ").strip().lower()
+            if user_input == 'y':
+                f.write(f"# {folder.title()}
+
+" +
+                        "## Enumeration
+
+" +
+                        "### Port Scan
+
+" +
+                        "## Foothold
+
+" +
+                        "## Privilege Escalation
+
+" +
+                        "## What I Learned
+
+")
+            else:
+                f.write(f"# {folder.title()}
+
+" +
+                        "## Enumeration
+
+" +
+                        "### Port Scan
+
+" +
+                        "## Foothold
+
+" +
+                        "## Privilege Escalation
+
+")
 
         if not date_pool:
             raise Exception('Not enough unique dates available.')
